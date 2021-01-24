@@ -21,6 +21,19 @@ app.post('/', (req, res) =>{
     res.send("The result of the calculation is " + result);
 })
 
+app.get('/bmicalculator', (req, res) => {
+    res.sendFile(__dirname + "/bmiCalculator.html")
+})
+
+app.post('/bmicalculator', (req, res) =>{
+    var weight = parseFloat(req.body.weight);
+    var height = parseFloat(req.body.height);
+
+    var result = weight / (height * height);
+
+    res.send("Your BMI is " + result);
+})
+
 
 
 //Listening Ports
